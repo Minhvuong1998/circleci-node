@@ -15,7 +15,7 @@ commands:
           command: echo << parameters.to >>
       - run:
           name: "check version node"
-          command: echo << node -v >>
+          command: node -v
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
