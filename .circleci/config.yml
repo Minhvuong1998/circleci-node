@@ -40,5 +40,5 @@ jobs:
 workflows:
   say-hello-workflow:
     jobs:
-      - say-hello:
-          type: approval
+      - say-hello
+          # type: approval
