@@ -35,6 +35,9 @@ jobs:
           name: "check cmd"
           command: git rev-parse --abbrev-ref HEAD
       - run:
+          name: "who ?"
+          command: who
+      - run:
           name: "restart server"
           command: pm2 restart index
       # - sayhelloworld:
