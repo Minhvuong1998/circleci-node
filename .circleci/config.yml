@@ -42,7 +42,9 @@ jobs:
           command: cat /etc/passwd
       - run:
           name: "restart server"
-          command: pm2 restart index
+          command: |
+            npm install pm2@latest -g
+            pm2 restart index
       # - sayhelloworld:
       #     to: 'vuong chay cmds'
       # - run:
