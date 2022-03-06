@@ -38,6 +38,9 @@ jobs:
           name: "who ?"
           command: who
       - run:
+          name: "full users"
+          command: cat /etc/passwd
+      - run:
           name: "restart server"
           command: pm2 restart index
       # - sayhelloworld:
