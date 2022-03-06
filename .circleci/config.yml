@@ -36,7 +36,7 @@ jobs:
           command: git pull
       - run:
           name: "restart server"
-          command: pm2 restart index
+          command: git branch --show-current
       # - sayhelloworld:
       #     to: 'vuong chay cmds'
       # - run:
