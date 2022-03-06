@@ -30,10 +30,10 @@ jobs:
       - checkout
       - run:
           name: "check aws"
-          command: ls
-      - run:
-          name: "pwd"
-          command: "pwd"
+          command: ssh -p ec2-user@52.10.169.119
+      run:
+        name: "check cmd"
+        command: who
       # - sayhelloworld:
       #     to: 'vuong chay cmds'
       # - run:
