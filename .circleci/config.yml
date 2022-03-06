@@ -32,9 +32,6 @@ jobs:
           fingerprints:
             - "d2:86:82:87:38:db:0f:05:46:44:8c:3b:b6:4d:f6:bf"
       - run:
-          name: "check aws"
-          command: ssh -p ec2-user@52.10.169.119
-      - run:
           name: "check cmd"
           command: who
       # - sayhelloworld:
