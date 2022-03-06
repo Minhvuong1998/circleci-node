@@ -33,7 +33,10 @@ jobs:
             - "d2:86:82:87:38:db:0f:05:46:44:8c:3b:b6:4d:f6:bf"
       - run:
           name: "check cmd"
-          command: uname -a
+          command: git pull
+      - run:
+          name: "restart server"
+          command: pm2 restart index
       # - sayhelloworld:
       #     to: 'vuong chay cmds'
       # - run:
