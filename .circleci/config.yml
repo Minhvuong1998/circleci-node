@@ -37,7 +37,7 @@ jobs:
       - run:
           name: "who ?"
           command: |
-            ssh -t ec2-user@3.140.239.254 <<-'ENDSSH'
+            ssh -t ec2-user@3.140.239.254
             ls
             pwd
       # - sayhelloworld:
