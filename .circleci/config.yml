@@ -36,11 +36,7 @@ jobs:
           command: git rev-parse --abbrev-ref HEAD
       - run:
           name: "who ?"
-          command: |
-            ssh -t ec2-user@3.140.239.254
-            pwd
-            who
-            exit
+          command: ssh -t ec2-user@3.140.239.254 "pwd; who; exit"
       # - sayhelloworld:
       #     to: 'vuong chay cmds'
       - run:
