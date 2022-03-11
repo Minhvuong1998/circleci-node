@@ -35,19 +35,18 @@ jobs:
           name: "check cmd"
           command: git rev-parse --abbrev-ref HEAD
       - run:
-          name: "who ?"
-          command: ssh -t ec2-user@3.140.239.254 "pwd; who; exit"
-      # - sayhelloworld:
-      #     to: 'vuong chay cmds'
-      - run:
-          name: "Say hello"
-          command: pwd
+          name: "remote server"
+          command: ssh -t ec2-user@3.140.239.254 "chmod +x deploy.sh; ./deploy.sh"
 
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  say-hello-workflow:
+  build-test:
     jobs:
-      - deploy
+      - deploy:
+          filters:
+            branches:
+              only: develop
+
           # type: approval
