@@ -36,7 +36,7 @@ jobs:
           command: git rev-parse --abbrev-ref HEAD
       - run:
           name: "remote server"
-          command: ssh -t ec2-user@3.140.239.254 "cd circleci-node; chmod +x deploy.sh; ./deploy.sh"
+          command: ssh -t ec2-user@3.140.239.254 "cd circleci-node;git pull;pm2 restart app"
 
 
 # Invoke jobs via workflows
@@ -44,9 +44,9 @@ jobs:
 workflows:
   build-test:
     jobs:
-      - deploy:
-          filters:
-            branches:
-              only: develop
+      - deploy
+          # filters:
+          #   branches:
+          #     only: develop
 
           # type: approval
