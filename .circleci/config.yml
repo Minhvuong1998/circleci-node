@@ -36,15 +36,12 @@ jobs:
           command: git rev-parse --abbrev-ref HEAD
       - run:
           name: "who ?"
-          command: |
-            ssh -t ec2-user@3.140.239.254
-            ls
-            pwd
+          command: ssh -t ec2-user@3.140.239.254
       # - sayhelloworld:
       #     to: 'vuong chay cmds'
-      # - run:
-      #     name: "Say hello"
-      #     command: "echo Hello, World!"
+      - run:
+          name: "Say hello"
+          command: pwd
 
 
 # Invoke jobs via workflows
