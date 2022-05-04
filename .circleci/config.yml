@@ -1,5 +1,19 @@
 version: 2.1
 
+commands:
+  duplicate: 
+    description: 'commands are duplicate'
+    parameters:
+      to:
+        type: string
+        default: "wellcome to parameter to"
+    steps:
+      - run: 
+          name: 'run in commands'
+          command: who
+      - run: 
+          name: 'show value of the parameter to'
+          command: echo << parameters.to >>
 jobs:
   deploy:
     machine:
@@ -25,6 +39,7 @@ jobs:
     machine: true
     steps:
       - checkout
+      - duplicate
       - run:
           name: 'run the learning'
           command: ls
