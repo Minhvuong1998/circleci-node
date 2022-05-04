@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "node index.js"
+    "serve": "node index.js",
+    "cdk": "cdk"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/Minhvuong1998/circleci-node/issues"
   },
-  "homepage": "https://github.com/Minhvuong1998/circleci-node#readme"
+  "homepage": "https://github.com/Minhvuong1998/circleci-node#readme",
+  "devDependencies": {
+    "typescript": "^4.6.2"
+  },
+  "dependencies": {
+    "aws-cdk": "^2.15.0",
+    "typeorm": "^0.2.45"
+  }
 }

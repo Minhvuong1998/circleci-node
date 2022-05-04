@@ -1,42 +1,34 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine.
-# See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
-commands:
-  sayhelloworld:
-    description: "have a nice day"
-    parameters:
-      to:
-        type: string
-        default: "hello world"
-    steps:
-      - run:
-          name: 'run command echo parameters'
-          command: echo << parameters.to >>
-      - run:
-          name: "check version node"
-          command: node -v
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
   deploy:
-    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     machine:
       enabled: true
-    # Add steps to the job
-    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - checkout
-      - add_ssh_keys:
-          fingerprints:
-            - "f0:54:20:62:c0:b2:38:e9:61:19:47:08:ec:16:61:cb"
       - run:
-          name: "check cmd"
-          command: git rev-parse --abbrev-ref HEAD
+          name: 'run the first'
+          command: ls
       - run:
-          name: "remote server"
-          command: ssh -t ec2-user@3.140.239.254 "cd circleci-node;git pull;pm2 restart app"
+          name: 'run the second'
+          command: who
+      # - add_ssh_keys:
+      #     fingerprints:
+      #       - "f0:54:20:62:c0:b2:38:e9:61:19:47:08:ec:16:61:cb"
+      # - run:
+      #     name: "check cmd"
+      #     command: git rev-parse --abbrev-ref HEAD
+      # - run:
+      #     name: "remote server"
+      #     command: ssh -t ec2-user@3.140.239.254 "cd circleci-node;git pull;pm2 restart app"
+  learning:
+    machine: true
+    steps:
+      - checkout
+      - run:
+        name: 'run the learning'
+        command: ls
+
 
 
 # Invoke jobs via workflows
@@ -45,6 +37,9 @@ workflows:
   build-test:
     jobs:
       - deploy
+      - learning:
+        requires:
+          - deploy
           # filters:
           #   branches:
           #     only: develop
