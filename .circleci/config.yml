@@ -1,5 +1,13 @@
 version: 2.1
 
+parameters:
+  FIRST:
+    type: string
+    default: 'NGUYEN MINH'
+  LAST: 
+    type: string
+    default: 'VUONG'
+
 commands:
   duplicate: 
     description: 'commands are duplicate'
@@ -18,8 +26,6 @@ jobs:
   deploy:
     machine:
       enabled: true
-      environment: 
-        VUONG: 'NGUYEN MINH'
     steps:
       - checkout
       - run:
@@ -30,7 +36,7 @@ jobs:
           command: who
       - run:
           name: 'show author'
-          command: echo $VUONG
+          command: echo "${pipeline.parameters.FIRST} ${pipeline.parameters.LAST}"
       # - add_ssh_keys:
       #     fingerprints:
       #       - "f0:54:20:62:c0:b2:38:e9:61:19:47:08:ec:16:61:cb"
