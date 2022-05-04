@@ -26,8 +26,8 @@ jobs:
     steps:
       - checkout
       - run:
-        name: 'run the learning'
-        command: ls
+          name: 'run the learning'
+          command: ls
 
 
 
